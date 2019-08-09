@@ -29,6 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 gem 'devise', '~>4.6.2'
 gem 'devise-jwt', '~>0.6.0'
+gem 'activeadmin', '~>2.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
