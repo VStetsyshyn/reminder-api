@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  
+  protect_from_forgery only: :admin_action?
+
   def render_resource(resource)
     if resource.errors.empty?
       render json: resource
