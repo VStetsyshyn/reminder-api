@@ -30,6 +30,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise', '~>4.6.2'
 gem 'devise-jwt', '~>0.6.0'
 gem 'activeadmin', '~>2.2.0'
+gem 'json', '~>2.1.0'
+gem "http-2"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -37,7 +40,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.72.0', require: false
   gem 'pry'
   gem 'rspec-rails'
-  gem 'dotenv-rails', '~>2.7.5'
+  gem 'dotenv-rails'
 end
 
 group :development do
