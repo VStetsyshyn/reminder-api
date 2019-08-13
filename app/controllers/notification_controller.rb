@@ -1,13 +1,13 @@
 class NotificationController < ApplicationController
-  def notification_check
+  def notification_check(time)
     #     title = 'ПРИВІТ'
     #     respon = 'Тато?'
     #     reg_id = params['reg_id']
     #     fcm = FcmSend.send_notification(title, respon, reg_id)
     #     render json: { Android: fcm }
     # end
-    t = Time.new(2019, 8, 13, 21, 27).to_time
+    time = time.to_datetime
 
-    NotificationWorker.perform_at(t)
+    NotificationWorker.perform_at(time)
 end
 end
