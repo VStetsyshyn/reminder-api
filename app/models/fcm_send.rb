@@ -1,7 +1,7 @@
 class FcmSend < ApplicationRecord
   ## Android Push Notifiation ##
   def self.send_notification(title, respon, reg_id)
-    reg_id = ['dNBke5pyzwc:APA91bEFPalGNZrlXlVVuISk5MezB6gxfrMudEll19IZfhywBX-_0o5obL9wZ4vr0yRe1VnJ0tnM7AoG-UozIq-MRF-bc3XJo0gZ5s5ySLKuO7v982x0ZaoYxL0703_H4l3u7gKziD4q']
+    reg_id = ['dRn5NMDs014:APA91bG17btX87uvOu1WPHGL4SDUJlDxrBsNnKYgLE6MsBgYOW4_YEFFxjYRiR_8s-wRu9WhxpEfUqDJ96guGA2BieyFWeKwhyCuZDb2aDxbmq__krlbyfOZfDAgzYvhBemofL8OlCRs']
     res1 = ''
     data = { :registration_ids => reg_id,
              'data' => {
