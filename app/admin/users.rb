@@ -17,10 +17,9 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
-      f.input :password, input_html: { autocomplete: "new-password" }
+      f.input :password, input_html: { autocomplete: 'new-password' }
       f.input :email
     end
     f.actions
   end
-
 end
