@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /login', type: :request do
- # let(:user) { Fabricate(:user) }
+  # let(:user) { Fabricate(:user) }
   let(:url) { '/login' }
   let(:params) do
     {
       user: {
-        email: "t@t.com",
-        password: "123456"
+        email: 't@t.com',
+        password: '123456'
       }
     }
   end
@@ -33,7 +33,7 @@ RSpec.describe 'POST /login', type: :request do
 
   context 'when login params are incorrect' do
     before { post url }
-    
+
     it 'returns unathorized status' do
       expect(response.status).to eq 401
     end
