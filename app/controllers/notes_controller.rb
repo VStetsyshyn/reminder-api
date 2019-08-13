@@ -20,6 +20,7 @@ class NotesController < ApplicationController
 
     if @note.save
       render json: @note, status: :created, location: @note
+      send_notification(@note)
     else
       render json: @note.errors, status: :unprocessable_entity
     end
@@ -41,7 +42,12 @@ class NotesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def send_notification(note)
+    alert_time = note.alert_time.to_datetime
+    content = note.content
+    NotificationWorker.perform_at(alert_time, content)
+  end
+
   def new_note
     @note = Note.new(note_params)
     @note.user = current_user
@@ -51,7 +57,6 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def note_params
     params.require(:note).permit(:content, :alert_time)
   end
