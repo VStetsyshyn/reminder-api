@@ -32,6 +32,8 @@ gem 'devise', '~>4.6.2'
 gem 'devise-jwt', '~>0.6.0'
 gem 'http-2'
 gem 'json', '~>2.1.0'
+gem 'redis'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
