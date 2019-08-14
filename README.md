@@ -18,6 +18,13 @@ For AUTHORIZATION_ANDROID_KEY set Firebase Server Key
 AUTHORIZATION_ANDROID_KEY=key=
 ```
 
+**Redis and Sidekiq**
+install Redis
+Debian based Linux `sudo apt-get install redis-server` then `redis-server` and
+```
+sidekiq
+```
+
 ## Authentication
 
 The REST API uses a token based authentication with the `devise_jwt` gem. Revocation strategy BlackList.
