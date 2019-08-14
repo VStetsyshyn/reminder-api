@@ -28,9 +28,11 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 ## Notification with Firebase Cloud Messaging
 You can see down below in register part param ```fcm_token``` uniq for your device, you should set it to send notifications.
 *fcm_token generating on Front-end part*
-For test you can use:
+for test you can use:
 Instance ID Token
-```https://peter-gribanov.github.io/serviceworker/```
+```
+https://peter-gribanov.github.io/serviceworker/
+```
 
 ## Registration
 
