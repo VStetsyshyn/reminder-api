@@ -14,7 +14,7 @@ The only exception to this is the registration end-point and admin end-point, wh
 
 For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be in the body of the request, encoded as JSON with a Content-Type of application/json:
 
-# Registration
+## Registration
 
 *Sign_up*
 ```
@@ -42,7 +42,7 @@ POST /api/v1/login
     }
 }
 ```
-# Unregister
+## Unregister
 *Log_out*
 ```
 DELETE	/api/v1/logout
@@ -61,7 +61,7 @@ admin/login
 admin/users
 ```
 
-# Create Note with remind time and Send Notification
+## Create Note with remind time and Send Notification
 *Implemented all CRUD functionality*
 ```
 GET  /api/v1/notes
@@ -75,7 +75,9 @@ POST	/api/v1/notes
 ```
 All timestamps return in ISO 8601 format, but you need specified time-zone:
 for example GMT +3
-`YYYY-MM-DDTHH:MM:SS+03:00`
+```
+YYYY-MM-DDTHH:MM:SS+03:00
+```
 
 **example:**
 ```
