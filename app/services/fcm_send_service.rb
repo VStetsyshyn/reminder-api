@@ -1,13 +1,12 @@
 require 'net/http'
 class FcmSendService < ApplicationRecord
   class << self
-    def send_notification(title, respon, reg_id)
+    def send_notification(title, subtitle, fcm_token)
       ## Android Push Notifiation ##
-      reg_id = ['dRn5NMDs014:APA91bG17btX87uvOu1WPHGL4SDUJlDxrBsNnKYgLE6MsBgYOW4_YEFFxjYRiR_8s-wRu9WhxpEfUqDJ96guGA2BieyFWeKwhyCuZDb2aDxbmq__krlbyfOZfDAgzYvhBemofL8OlCRs']
-      data = { :registration_ids => reg_id,
+      data = { registration_ids: fcm_token,
                'data' => {
-                 'body' => respon,
-                 'message' => respon,
+                 'body' => subtitle,
+                 'message' => subtitle,
                  'title' => title
                  # "icon" => "myicon",
                  # "type" => type,
@@ -17,8 +16,7 @@ class FcmSendService < ApplicationRecord
                } }
 
       uri = URI.parse('https://fcm.googleapis.com/fcm/send')
-
-      response = setup_https(uri).request(post(uri, data))
+      setup_https(uri).request(post(uri, data))
     end
 
     private
@@ -34,7 +32,6 @@ class FcmSendService < ApplicationRecord
       post = Net::HTTP::Post.new(uri.path)
       post.body = JSON.generate(data)
       post['Content-Type'] = 'application/json'
-      binding.pry
       post['Authorization'] = ENV['AUTHORIZATION_ANDROID_KEY']
       post
     end

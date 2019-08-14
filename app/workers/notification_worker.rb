@@ -1,10 +1,10 @@
 class NotificationWorker
   include Sidekiq::Worker
 
-  def perform(content)
-    respon = 'Hello World'
-    reg_id = ['reg_id']
-    fcm = FcmSendService.send_notification(content, respon, reg_id)
-    # render json: { Android: fcm }# Do something
+  def perform(content, fcm_token)
+    subtitle = 'Reminder'
+    fcm_token_array = []
+    fcm_token_array << fcm_token
+    FcmSendService.send_notification(content, subtitle, fcm_token_array)
   end
 end

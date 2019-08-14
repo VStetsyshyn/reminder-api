@@ -45,7 +45,7 @@ module Api
 
       def send_notification(note)
         alert_time = note.alert_time.to_datetime
-        NotificationWorker.perform_at(alert_time, note.content)
+        NotificationWorker.perform_at(alert_time, note.content, note.user.fcm_token)
       end
 
       def new_note
