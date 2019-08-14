@@ -19,11 +19,11 @@ AUTHORIZATION_ANDROID_KEY=key=
 ```
 
 **Redis and Sidekiq**
+
 install Redis
-Debian based Linux `sudo apt-get install redis-server` then `redis-server` and
-```
-sidekiq
-```
+
+For Debian based Linux `sudo apt-get install redis-server` then `redis-server` and
+`sidekiq`
 
 ## Authentication
 
