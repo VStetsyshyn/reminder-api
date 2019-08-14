@@ -30,17 +30,17 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'activeadmin', '~>2.2.0'
 gem 'devise', '~>4.6.2'
 gem 'devise-jwt', '~>0.6.0'
-gem 'http-2'
+gem 'http-2', '~>0.10.1'
 gem 'json', '~>2.1.0'
-gem 'redis'
-gem 'sidekiq'
+gem 'redis', '~>4.1.2'
+gem 'sidekiq', '~>5.2.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~>2.7.5'
-  gem 'pry'
-  gem 'rspec-rails'
+  gem 'pry', '~>0.12.2'
+  gem 'rspec-rails', '~>3.8.2'
   gem 'rubocop', '~> 0.72.0', require: false
 end
 
