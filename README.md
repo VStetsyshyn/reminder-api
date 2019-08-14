@@ -7,12 +7,30 @@
 * dotenv-rails
 * Background jobs with Sidekiq and Redis
 
+**ENV VARIABLES**
+You need to generate secret key yourself by running rake secret and place it in your environmental variables
+```gem install dotenv-rails```
+create `.env` in *root folder* and set your local variables:
+```
+For DEVISE_JWT_SECRET_KEY use *rake secret*
+DEVISE_JWT_SECRET_KEY=
+For AUTHORIZATION_ANDROID_KEY set Firebase Server Key
+AUTHORIZATION_ANDROID_KEY=key=
+```
+
 ## Authentication
 
 The REST API uses a token based authentication with the `devise_jwt` gem. Revocation strategy BlackList.
-The only exception to this is the registration end-point and admin end-point, where used Cookies.
+The only exception to this is the registration end-point also admin end-point, where used Cookies.
 
 For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be in the body of the request, encoded as JSON with a Content-Type of application/json:
+
+## Notification with Firebase Cloud Messaging
+You can see down below in register part param ```fcm_token``` uniq for your device, you should set it to send notifications.
+*fcm_token generating on Front-end part*
+For test you can use:
+Instance ID Token
+```https://peter-gribanov.github.io/serviceworker/```
 
 ## Registration
 
@@ -47,7 +65,7 @@ POST /api/v1/login
 ```
 DELETE	/api/v1/logout
 ```
-# Admin panel with Active Admin
+## Admin panel with Active Admin
 You need run in CLI to generate admin credentials
 ```
 rake db:seed
