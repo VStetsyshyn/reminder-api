@@ -6,24 +6,26 @@
 * postgresql
 * redis
 * sidekiq
+* dotenv-rails
 
 
 * Background jobs with Sidekiq and Redis
 
 ## Use
 
-* Authorization flow
-```
-GET	/api/v1/login
-POST	/api/v1/login
-DELETE	/api/v1/logout
-```
+* Authentication
+The REST API uses a token based authentication with the `devise_jwt` gem. Revocation strategy BlackList.
+The only exception to this is the registration end-point and admin end-point, where used Cookies.
 
-User Sign_up
+For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be in the body of the request, encoded as JSON with a Content-Type of application/json:
+
+#Registration
+
+-Sign_up
 ```
 POST	/api/v1/signup
 ```
-JSON:
+**example:**
 ```
 {
     "user": {
@@ -33,11 +35,11 @@ JSON:
     }
 }
 ```
-User Log_in
+-Log_in
 ```
 POST /api/v1/login
 ```
-JSON:
+**example:**
 ```{
     "user": {
         "email": "user@example.com",
@@ -45,28 +47,56 @@ JSON:
     }
 }
 ```
-User Log_out
+#Unregister
+-Log_out
 ```
 DELETE	/api/v1/logout
 ```
 
 
-* Notes and Notification flow
+
+#Create Note with remind time and Send Notification
+Implemented all CRUD functionality
 ```
 POST	/api/v1/notes
 PUT	/api/v1/notes/:id
 DELETE	/api/v1/notes/:id
 ```
-Create note by user
+Create Note
 ```
 POST	/api/v1/notes
 ```
-JSON:
+All timestamps return in ISO 8601 format, but you need specified time-zone:
+- for example GMT +3
+`YYYY-MM-DDTHH:MM:SS+03:00`
+
+**example:**
 ```
 {
     "content": "Hello_World",
     "alert_time": "2019-08-14T21:58:10+03:00"
 }
+```
+**response**
+```
+200 Created
+{
+    "id": 15,
+    "content": "Hello_World",
+    "alert_time": "2019-08-14T21:58:10+03:00",
+    "user_id": 4,
+    "created_at": "2019-08-14T22:34:58.825Z",
+    "updated_at": "2019-08-14T22:34:58.825Z"
+}
+```
+
+##Client errors
+Sending invalid JSON or paremeters will result in a 400 Bad Request response.
+
+Sending invalid fields will result in a 422 Unprocessable Entity response.
+
+422 Unprocessable Entity
+
 ```
 
 * ActiveAdmin flow
