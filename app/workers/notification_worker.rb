@@ -1,13 +1,10 @@
-# require_relative "./app/controllers/notification_controller"
 class NotificationWorker
   include Sidekiq::Worker
 
-  def perform(*_args)
-    p 'Hello World!'
-    title = 'ПРИВІТ'
-    respon = 'Тато?'
-    reg_id = ['reg_id']
-    fcm = FcmSend.send_notification(title, respon, reg_id)
-    # render json: { Android: fcm }# Do something
+  def perform(content, fcm_token)
+    subtitle = 'Reminder'
+    fcm_token_array = []
+    fcm_token_array << fcm_token
+    FcmSendService.send_notification(content, subtitle, fcm_token_array)
   end
 end
