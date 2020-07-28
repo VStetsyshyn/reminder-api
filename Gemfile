@@ -31,7 +31,7 @@ gem 'activeadmin', '~>2.2.0'
 gem 'devise', '~>4.6.2'
 gem 'devise-jwt', '~>0.6.0'
 gem 'http-2', '~>0.10.1'
-gem 'json', '~>2.1.0'
+gem 'json', '~>2.3.0'
 gem 'redis', '~>4.1.2'
 gem 'sidekiq', '~>5.2.7'
 
